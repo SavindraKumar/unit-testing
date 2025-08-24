@@ -1,3 +1,7 @@
+branches:
+  only:
+    - unit_tests_ci
+    
 stages:
   - unit tests
   
