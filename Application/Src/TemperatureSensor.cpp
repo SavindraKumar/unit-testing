@@ -32,9 +32,9 @@ TemperatureSensor::TemperatureSensor(HAL::IAdc& adcReader) : m_adcReader(adcRead
 //---------------------------------------------------------------------------
 float TemperatureSensor::readTemperature(int channel)
 {
-    int raw = m_adcReader.readChannel(channel);
+    int var = m_adcReader.readChannel(channel);
 
-    return (raw * 3.3f / 4095.0f) * 100.0f; // dummy conversion
+    return (var * 3.3f / 4095.0f) * 100.0f; // dummy conversion
 }
 
 //---------------------------------------------------------------------------
