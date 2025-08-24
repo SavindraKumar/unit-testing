@@ -1,0 +1,19 @@
+stages:
+  - unit tests
+  
+jobs:
+    - stage: unit tests
+      script:
+      - git clone git://github.com/cpputest/cpputest.git
+      - cd cpputest
+      - sudo apt-get install dos2unix
+      - dos2unix Makefile.am
+      - dos2unix scripts/filterGcov.sh
+      - cd cpputest_build
+      - autoreconf .. -i
+      - ../configure
+      - make -B
+      - cp -r lib ../lib
+      - cd ..
+      - cd ..
+      - cd UnitTests && make -B gcov
